@@ -1,18 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import faceBookIcon from '../assets/images/facebookicon.png'
 import googleIcon from '../assets/images/googleicon.png'
 
+import { initializeApp } from "firebase/app";
+import firebaseConfig from '../firebase.Config';
+
+const app = initializeApp(firebaseConfig);
 function SignUp() {
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [newUser, setNewUser] = useState(true);
   return (
     <div className="flex flex-col items-center">
         <div className="flex-col w-[450px] mt-10 mx-auto items-center border-2 rounded-md">
-            <h2 className='text-center text-2xl font-bold pb-6 pt-2'>Create an Account</h2>
+            <h2 className='text-center text-2xl font-bold pb-6 pt-2'>{newUser? 'Create an Account' : 'Log In'}</h2>
             <div className='px-8'>
-                <input className="w-full rounded-lg p-1 mb-0.5 focus:border-white focus:ring-1 focus:outline-white text-md text-gray-600" placeholder='Name' type="text" name="name" id="name" /> <hr /> <br />
-                <input className="w-full rounded-lg p-1 mb-0.5 focus:border-white focus:ring-1 focus:outline-white text-md text-gray-600" placeholder='Email' type="email" name="name" id="name" /> <hr /> <br />
+                {newUser && <input className="w-full rounded-lg p-1 mb-0.5 focus:border-white focus:ring-1 focus:outline-white text-md text-gray-600" placeholder='name' type="text" name="name" id="name" />} <hr /> <br />
+                <input className="w-full rounded-lg p-1 mb-0.5 focus:border-white focus:ring-1 focus:outline-white text-md text-gray-600 border-b-[1px]" placeholder='Email' type="email" name="name" id="name" />  <br />
                 <input className="w-full rounded-lg p-1 mb-0.5 focus:border-white focus:ring-1 focus:outline-white text-md text-gray-600" placeholder='Password' type="Password" name="name" id="name" /> <hr /> <br />
-                <input className="w-full rounded-lg p-1 mb-0.5 focus:border-white focus:ring-1 focus:outline-white text-md text-gray-600" placeholder='Confirm Password' type="password" name="Password" id="name" /> <hr /> <br />
-                <input className="w-full rounded-lg bg-red-400 py-2 mb-2 cursor-pointer hover:bg-red-500 duration-150 text-white font-bold" type="submit" name="submit" id="name" />
+                {newUser && <input className="w-full rounded-lg p-1 mb-0.5 focus:border-white focus:ring-1 focus:outline-white text-md text-gray-600" placeholder='Confirm Password' type="password" name="Password" id="name" />}  <hr /><br /> <br />
+                <button className="w-full rounded-lg bg-red-400 py-2 mb-2 cursor-pointer hover:bg-red-500 duration-150 text-white font-bold" type="submit" name="Submit" id="name">{newUser ?'Create Account': 'Log in'}</button>
                 <p className='py-2 text-center'>Already Have an account? <span className='text-red-400 cursor-pointer font-semibold'>Login</span></p>
             </div>
         </div>
