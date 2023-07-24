@@ -1,7 +1,9 @@
+import LogIn from "../Components/LogIn";
+
 const BlogsPage = () => {
     return (
         <div>
-            <p>This is blog page</p>
+            <LogIn />
         </div>
     );
 };
