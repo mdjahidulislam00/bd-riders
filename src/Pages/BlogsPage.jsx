@@ -1,11 +1,9 @@
-import LogIn from "../Components/LogIn";
+import React from 'react'
 
-const BlogsPage = () => {
-    return (
-        <div>
-            <LogIn />
-        </div>
-    );
-};
+function BlogsPage() {
+  return (
+    <div>BlogsPage</div>
+  )
+}
 
-export default BlogsPage;
+export default BlogsPage
