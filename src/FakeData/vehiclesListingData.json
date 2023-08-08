@@ -1,0 +1,160 @@
+[
+  {
+  "id": 1,
+  "category": "bike",
+  "name": "honda",
+  "trip": 120,
+  "rent": 120,
+  "images": "https://toppng.com//public/uploads/preview/motorcycle-sports-bike-icon-115629692461s5jwedks2.png"
+  },
+  {
+  "id": 2,
+  "category": "bike",
+  "trip": 110,
+  "name": "hero",
+  "rent": 110,
+  "images": "https://toppng.com//public/uploads/preview/motorcycle-sports-bike-icon-115629692461s5jwedks2.png"
+  },
+  {
+  "id": 3,
+  "category": "bike",
+  "trip": 150,
+  "name": "Yeahama",
+  "rent": 140,
+  "images": "https://toppng.com//public/uploads/preview/motorcycle-sports-bike-icon-115629692461s5jwedks2.png"
+  },
+  {
+  "id": 4,
+  "category": "bike",
+  "trip": 80,
+  "name": "KTM",
+  "rent": 125,
+  "images": "https://toppng.com//public/uploads/preview/motorcycle-sports-bike-icon-115629692461s5jwedks2.png"
+  },
+  {
+  "id": 5,
+  "category": "bike",
+  "trip": 50,
+  "name": "kawasaki",
+  "rent": 150,
+  "images": "https://toppng.com//public/uploads/preview/motorcycle-sports-bike-icon-115629692461s5jwedks2.png"
+  },
+  {
+  "id": 6,
+  "category": "car",
+  "name": "toyota",
+  "rent": 160,
+  "images": "https://png.pngtree.com/png-clipart/20210606/original/pngtree-sport-car-logo-vector-png-image_6398339.jpg"
+  },
+  {
+  "id": 7,
+  "category": "car",
+  "name": "BMW",
+  "rent": 170,
+  "images": "https://png.pngtree.com/png-clipart/20210606/original/pngtree-sport-car-logo-vector-png-image_6398339.jpg"
+  },
+  {
+  "id": 8,
+  "category": "car",
+  "name": "Honda",
+  "rent": 160,
+  "images": "https://png.pngtree.com/png-clipart/20210606/original/pngtree-sport-car-logo-vector-png-image_6398339.jpg"
+  },
+  {
+  "id": 9,
+  "category": "car",
+  "trip": 200,
+  "name": "mitsubasi",
+  "rent": 180,
+  "images": "https://png.pngtree.com/png-clipart/20210606/original/pngtree-sport-car-logo-vector-png-image_6398339.jpg"
+  },
+  {
+  "id": 10,
+  "category": "car",
+  "trip": 140,
+  "name": "toyota",
+  "rent": 190,
+  "images": "https://png.pngtree.com/png-clipart/20210606/original/pngtree-sport-car-logo-vector-png-image_6398339.jpg"
+  },
+  {
+  "id": 11,
+  "category": "bus",
+  "trip": 130,
+  "name": "volvo",
+  "rent": 200,
+  "images": "https://e7.pngegg.com/pngimages/379/640/png-clipart-tour-bus-service-greyhound-lines-coach-bus-compact-car-angle.png"
+  },
+  {
+  "id": 12,
+  "category": "bus",
+  "trip": 120,
+  "name": "marsides",
+  "rent": 210,
+  "images": "https://e7.pngegg.com/pngimages/379/640/png-clipart-tour-bus-service-greyhound-lines-coach-bus-compact-car-angle.png"
+  },
+  {
+  "id": 13,
+  "category": "bus",
+  "trip": 120,
+  "name": "BMW",
+  "rent": 230,
+  "images": "https://e7.pngegg.com/pngimages/379/640/png-clipart-tour-bus-service-greyhound-lines-coach-bus-compact-car-angle.png"
+  },
+  {
+  "id": 14,
+  "category": "bus",
+  "trip": 220,
+  "name": "volvo",
+  "rent": 210,
+  "images": "https://e7.pngegg.com/pngimages/379/640/png-clipart-tour-bus-service-greyhound-lines-coach-bus-compact-car-angle.png"
+  },
+  {
+  "id": 15,
+  "category": "bus",
+  "trip": 20,
+  "name": "volvo",
+  "rent": 250,
+  "images": "https://e7.pngegg.com/pngimages/379/640/png-clipart-tour-bus-service-greyhound-lines-coach-bus-compact-car-angle.png"
+  },
+  {
+  "id": 16,
+  "category": "train",
+  "trip": 400,
+  "name": "Akota",
+  "rent": 100,
+  "images": "https://cdn.imgbin.com/2/15/16/imgbin-train-3mkKE6XVXsBKYm8UUBUBT80fe.jpg"
+  },
+  {
+  "id": 17,
+  "category": "train",
+  "trip": 120,
+  "name": "Durtojan",
+  "rent": 100,
+  "images": "https://cdn.imgbin.com/2/15/16/imgbin-train-3mkKE6XVXsBKYm8UUBUBT80fe.jpg"
+  },
+  {
+  "id": 18,
+  "category": "train",
+  "trip": 10,
+  "name": "Bonolota",
+  "rent": 120,
+  "images": "https://cdn.imgbin.com/2/15/16/imgbin-train-3mkKE6XVXsBKYm8UUBUBT80fe.jpg"
+  },
+  {
+  "id": 19,
+  "category": "train",
+  "trip": 120,
+  "name": "Dumketu",
+  "rent": 100,
+  "images": "https://cdn.imgbin.com/2/15/16/imgbin-train-3mkKE6XVXsBKYm8UUBUBT80fe.jpg"
+  },
+  {
+  "id": 20,
+  "category": "train",
+  "trip": 140,
+  "name": "Comuter",
+  "rent": 90,
+  "images": "https://cdn.imgbin.com/2/15/16/imgbin-train-3mkKE6XVXsBKYm8UUBUBT80fe.jpg"
+  }
+
+]

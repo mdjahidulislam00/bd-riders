@@ -8,6 +8,7 @@ import ContractUs from '../Pages/ContractUs'
 import SingInPage from '../Pages/SingInPage'
 import NoMatchPage from '../Pages/NoMatchPage'
 import PrivateRoute from './PrivateRoute'
+import Footer from '../Components/Footer'
 
 function IndexRouting() {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -17,15 +18,13 @@ function IndexRouting() {
         <Routes>
             <Route exact path="/" element={<HomePage/>} />
             <Route exact path="/home" element={<HomePage/>} />
-            <Route exact path="/destination" element={
-                <PrivateRoute isLoggedIn={isLoggedIn}>
-                    <DestinationPage/>
-                </PrivateRoute>} />
+            <Route exact path="/destination/:vehicles" element={<DestinationPage/>} />
             <Route exact path="/blog" element={<BlogsPage/>} />
             <Route exact path="/contract" element={<ContractUs/>} />
             <Route exact path="/login" element={<SingInPage/>} />
             <Route exact path="*" element={<NoMatchPage/>} />
         </Routes>
+        <Footer />
     </div>
   )
 }
