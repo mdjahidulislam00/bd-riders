@@ -3,7 +3,7 @@ import IndexRouting from './routing/IndexRouting'
 
 // import reactLogo from './assets/react.svg'
 // import viteLogo from '/vite.svg'
-const currentUser = createContext();
+export const currentUser = createContext();
 function App() {
   const [logInUser, setLogInUser] = useState({})
   return (

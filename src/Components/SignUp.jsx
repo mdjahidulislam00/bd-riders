@@ -3,8 +3,10 @@ import faceBookIcon from '../assets/images/facebookicon.png'
 import googleIcon from '../assets/images/googleicon.png'
 import { initializeApp } from "firebase/app";
 import firebaseConfig from '../firebase.Config';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, FacebookAuthProvider, GoogleAuthProvider } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, FacebookAuthProvider, GoogleAuthProvider, onAuthStateChanged } from "firebase/auth";
 import FromValidation from './FromValidation';
+import { currentUser } from '../App';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const app = initializeApp(firebaseConfig);
 function SignUp() {
@@ -13,10 +15,24 @@ function SignUp() {
     const [userInfo, setUserInfo] = useState({
             name: ' ',
             email: ' ',
-            password: ' ',
-            isLoggedIn: false, 
+            password: ' ' 
     })
+
+    //use navigator and useLocation
+        const navigate = useNavigate();
+        const location = useLocation();
+        const {from} = location.state || {from: {pathname: ''}}
+        console.log(from);
+
+    //from error
     const [fromError, setFromError] = useState({name: '', email: '', password: ''});
+    //firebase error
+    const[firebaseError, setFirebaseError] = useState()
+
+    console.log(firebaseError)
+
+    //Context api
+    const[logInUser, setLogInUser] = useContext(currentUser);
 
     //handelInput from signIn from
     const handelInput = (e) =>{
@@ -34,6 +50,8 @@ function SignUp() {
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
+                    navigate('/home')
+                    setLogInUser(user)
                     setIsLoggedIn(true)
                     console.log(user)
                     console.log('successfully create')
@@ -42,6 +60,7 @@ function SignUp() {
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                        setFirebaseError(errorMessage)
                     // ..
                     console.log(errorCode, errorMessage)
                 });
@@ -52,6 +71,9 @@ function SignUp() {
                 .then((userCredential) => {
                     // Signed in 
                     const user = userCredential.user;
+                    navigate('/home')
+                    setLogInUser(user);
+                    setUserInfo(' ')
                     setIsLoggedIn(true)
                     console.log(user)
                     console.log('successfully login')
@@ -60,6 +82,7 @@ function SignUp() {
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
+                    setFirebaseError(errorMessage)
                     console.log(errorCode, errorMessage)
                 });
         }
@@ -72,7 +95,8 @@ function SignUp() {
             .then((result) => {
                 // The signed-in user info.
                 const user = result.user;
-
+                navigate('/destination/:vehicles')
+                setLogInUser(user)
                 // This gives you a Facebook Access Token. You can use it to access the Facebook API.
                 const credential = FacebookAuthProvider.credentialFromResult(result);
                 const accessToken = credential.accessToken;
@@ -84,6 +108,7 @@ function SignUp() {
                 // Handle Errors here.
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                    setFirebaseError(errorMessage)
                 // The email of the user's account used.
                 const email = error.customData.email;
                 // The AuthCredential type that was used.
@@ -105,6 +130,8 @@ function SignUp() {
                 const token = credential.accessToken;
                 // The signed-in user info.
                 const user = result.user;
+                navigate('/home')
+                setLogInUser(user)
                 // IdP data available using getAdditionalUserInfo(result)
                 // ...
                 console.log(user);
@@ -112,6 +139,7 @@ function SignUp() {
                 // Handle Errors here.
                 const errorCode = error.code;
                 const errorMessage = error.message;
+                setFirebaseError(errorMessage)
                 // The email of the user's account used.
                 const email = error.customData.email;
                 // The AuthCredential type that was used.
@@ -131,19 +159,20 @@ function SignUp() {
                 {fromError.email && <span className="text-red-500 p-0">{fromError.email}</span> }<br />  
                 <input onChange={handelInput} className="w-full px-1 py-1 border-b-[1px] border-gray-300 focus:border-blue-400 focus:ring-0 focus:outline-none text-md text-gray-600" placeholder='Password' type="password" name="password" id="password" /> <br />
                 {fromError.password && <span className="text-red-500 p-0">{fromError.password}</span> }<br />  <br />
+                {firebaseError ? <span>{firebaseError}</span> : ' ' }
                 <button className="w-full rounded-lg bg-red-400 py-2 mb-2 cursor-pointer hover:bg-red-500 duration-150 text-white font-bold" type="submit" name="Submit" id="signInButton">{isNewUser ?'Create Account': 'Log in'}</button>
                 <p className='py-2 text-center'>Already Have an account? <span className='text-red-400 cursor-pointer font-semibold' onClick={()=>setIsNewUser(!isNewUser)}>{isNewUser ? 'Login': 'signUp'}</span></p>
             </form>
         </div>
         <div className='py-2 w-[450px]'>
             <div className='text-center text-red-400 font-bold pb-2'> <p>Or</p></div>
-            <div onClick={handelFacebookLogIn} className='flex justify-start gap-16 items-center border-2 rounded-full px-2 py-1 mx-6 cursor-pointer mb-2 hover:border-red-200'>
-                <img src={faceBookIcon} alt="FacebookIcon" className="w-8 h-8 rounded-full" />
-                <p className='font-semibold'>Continue With Facebook</p>
-            </div>
             <div onClick={handelGoogleLogIn} className='flex justify-start gap-16 items-center border-2 rounded-full px-2 py-1 mx-6 cursor-pointer mb-2 hover:border-red-200'>
                 <img src={googleIcon} alt="FacebookIcon" className="w-8 h-8 rounded-full" />
                 <p className='font-semibold'>Continue With Google</p>
+            </div>
+            <div onClick={handelFacebookLogIn} className='flex justify-start gap-16 items-center border-2 rounded-full px-2 py-1 mx-6 cursor-pointer mb-2 hover:border-red-200'>
+                <img src={faceBookIcon} alt="FacebookIcon" className="w-8 h-8 rounded-full" />
+                <p className='font-semibold'>Continue With Facebook</p>
             </div>
         </div>
     </div>

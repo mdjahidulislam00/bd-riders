@@ -1,11 +1,13 @@
-import React from 'react'
-import { Navigate } from 'react-router-dom'
+import 'react'
+import { useContext } from 'react'
+import { currentUser } from '../App'
+import { Navigate, Outlet } from 'react-router-dom'
 
-function PrivateRoute({isLoggedIn, children}) {
-  if(!isLoggedIn){
-    return <Navigate to='/' replace />;
-  }
-  return children;
+function PrivateRoute() {
+  const [logInUser, setLogInUser] = useContext(currentUser)
+  return (
+    logInUser.email? <Outlet /> : <Navigate to="/login" />
+  )
 }
 
 export default PrivateRoute

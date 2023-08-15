@@ -1,6 +1,4 @@
-import React from 'react';
-import faceBookIcon from '../assets/images/facebookicon.png'
-import googleIcon from '../assets/images/googleicon.png'
+import 'react';
 import SignUp from '../Components/SignUp';
 
 

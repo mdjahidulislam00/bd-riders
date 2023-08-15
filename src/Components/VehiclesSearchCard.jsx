@@ -1,18 +1,16 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUsers } from '@fortawesome/free-solid-svg-icons';
 
-const VehiclesSearchCard = () => {
+const VehiclesSearchCard = (props) => {
+    const{name, images, rent, trip} = props.vehiclesCategory;
     return (
-        <div className="">
-            <header className="header bg-red-400 p-2 rounded-md">
-                <p className="text-xl font-semibold text-white">Destination From</p>
-                <p className="text-xl font-semibold text-white">Destination To</p>
-                <p className="text-md font-semibold text-gray-300">Date: 12/12/2023</p>
-            </header>
-            <div className="body bg-300">
-                <h1>Vehicles List:</h1>
-                <div className="Vehicles-List-Card">
-                    
-                </div>
+        <div className=" mt-[1px]">
+            <div className="body bg-sky-500 flex items-center justify-around gap-5 px-3 rounded-md text-white">
+                <img src={images} alt="" className='w-20 h-16 rounded-full p-1' />
+                <p className='text-md font-semibold'>{name}</p>
+                <p className='text-md font-semibold'> <FontAwesomeIcon icon={faUsers} />  {trip}</p>
+                <p className='text-md font-semibold'> {rent} $</p>
             </div>
         </div>
     );
