@@ -150,7 +150,6 @@ function SignUp() {
   return (
     <div className="flex flex-col items-center">
         <div className="flex-col w-[410px] mt-10 mx-auto items-center border-2 rounded-md">
-            <h1>{userInfo.name + userInfo.email + userInfo.password}</h1>
             <h2 className='text-center text-2xl font-bold pb-6 pt-2'>{isNewUser? 'Create an Account' : 'Log In'}</h2>
             <form className='px-8' onSubmit={handelSubmit}>
                 {isNewUser && <input onChange={handelInput} className="w-full px-1 py-1 border-b-[1px] border-gray-300 focus:border-blue-400 focus:ring-0 focus:outline-none text-md text-gray-600 " placeholder='name' type="text" name="name" id="name" />} <br />
@@ -159,7 +158,7 @@ function SignUp() {
                 {fromError.email && <span className="text-red-500 p-0">{fromError.email}</span> }<br />  
                 <input onChange={handelInput} className="w-full px-1 py-1 border-b-[1px] border-gray-300 focus:border-blue-400 focus:ring-0 focus:outline-none text-md text-gray-600" placeholder='Password' type="password" name="password" id="password" /> <br />
                 {fromError.password && <span className="text-red-500 p-0">{fromError.password}</span> }<br />  <br />
-                {firebaseError ? <span>{firebaseError}</span> : ' ' }
+                {firebaseError ? <span className='text-red-500 font-semibold p-2 '>{firebaseError}</span> : ' ' }
                 <button className="w-full rounded-lg bg-red-400 py-2 mb-2 cursor-pointer hover:bg-red-500 duration-150 text-white font-bold" type="submit" name="Submit" id="signInButton">{isNewUser ?'Create Account': 'Log in'}</button>
                 <p className='py-2 text-center'>Already Have an account? <span className='text-red-400 cursor-pointer font-semibold' onClick={()=>setIsNewUser(!isNewUser)}>{isNewUser ? 'Login': 'signUp'}</span></p>
             </form>
