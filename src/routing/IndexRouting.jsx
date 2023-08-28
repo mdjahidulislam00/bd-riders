@@ -6,7 +6,6 @@ import DestinationPage from '../Pages/DestinationPage'
 import BlogsPage from '../Pages/BlogsPage'
 import ContractUs from '../Pages/ContractUs'
 import SingInPage from '../Pages/SingInPage'
-import NoMatchPage from '../Pages/NoMatchPage'
 import Footer from '../Components/Footer'
 import PrivateRoute from './PrivateRoute'
 

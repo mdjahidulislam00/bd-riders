@@ -2,7 +2,7 @@ import 'react';
 import { useContext, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { currentUser } from '../App';
-import { getAuth, onAuthStateChanged, signOut } from 'firebase/auth';
+import { getAuth, signOut } from 'firebase/auth';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons';
 
@@ -33,7 +33,6 @@ const Header = () => {
                 signOut(auth).then(() => {
                     setLogInUser(' ')
                 // Sign-out successful.
-                console.log('Sign-out successful.')
                 }).catch((error) => {
                 // An error happened.
                 });
